@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.screen {
+  display: flex;
+}
+
+.leftside {
+  flex: 1
+}
+
+.leftside img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.rightside {
+  width: 500px;
+  height: 100vh;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rightside label {
+  display: block;
+  margin: 10px 0;
+}
+
+.rightside input {
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 14px;
+  outline: 0;
+}
