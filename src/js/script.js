@@ -1,3 +1,5 @@
+let aniversario = '30112001'
+
 let validadorRegras = {
   handleSubmit: (event)=>{
     event.preventDefault()
@@ -30,12 +32,25 @@ let validadorRegras = {
         switch (details[0]) {
           case 'required':
             if(input.value == ''){
-              return 'Campo Vazio'
+              return 'Campo vazio.'
             }
           break
           case 'min':
             if(input.value.length < details[1]){
-              return 'Poucos nmr'
+              return `Campo deve ter no mínimo ${details[1]} caracteres.`
+            }
+          break
+          case 'birth':
+            if(input.value === aniversario){
+              return `A senha não deve ser igual ao aniversário`
+            }
+          break
+          case 'email':
+            if(input.value !== ''){ //Não é obrigatório
+              let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              if(!regex.test(input.value.toLowerCase())) {
+                return 'E-mail digitado não é válido.';
+              }
             }
           break
         }
