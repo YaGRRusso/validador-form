@@ -41,20 +41,27 @@ let validadorRegras = {
         }
       }
     }
+    return true
   },
   showError: (input, error)=>{
-    input.style.borderColor = '#F00'
-
-    let errorElement = document.createElement('div')
-    errorElement.classList.add('error')
-    errorElement.innerHTML = error
-
-    input.parentElement.insertBefore(errorElement, input.nextElementSibling)
+    if (error !== undefined) {
+      input.style.border = '1px solid #e00'
+  
+      let errorElement = document.createElement('div')
+      errorElement.classList.add('error')
+      errorElement.innerHTML = error
+  
+      input.parentElement.insertBefore(errorElement, input.nextElementSibling)
+    }
   },
   clearErrors: ()=>{
     let errorElements = document.querySelectorAll('.error')
     for (i=0; i<errorElements.length;i++){
       errorElements[i].remove()
+    }
+    let errorInputs = document.querySelectorAll('input')
+    for (i=0; i<errorInputs.length;i++){
+      errorInputs[i].style = ''
     }
   }
 }
